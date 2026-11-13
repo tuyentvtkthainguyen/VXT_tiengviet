@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!--
+Warning! Do not edit the contents of this file.
+If you attempt to edit this file using an XML editor, you could lose
+customization and migration functionality. If you need to change
+information in the customization file, use the Customize User Interface
+dialog in the product.
+To access the Customize User Interface dialog, click the Tools menu,
+Customization panel, User Interface button, or enter CUI on the command line.
+-->
+<MouseButtonRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ButtonGroup UID="BGU_241_F3C75">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE AUX1</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_7B639">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_5CAD0">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_712D4">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_86FEA">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_088DC">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_E718C">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_DB88C">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_002EA">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE AUX2</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_1FBB9">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_86924">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_B2F25">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_4D3AF">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_69431">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_4AC9D">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_19D90">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_F2AEF">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE AUX3</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_31036">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_B19E6">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_88C6B">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_C2210">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_17628">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_C7CA4">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_0DDA3">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_8D2E6">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE AUX4</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_A39D4">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_FB7C2">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_EB3EF">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_6E221">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_4D1E9">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_35888">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+    <ButtonItem BlankLine="true" UID="BIU_241_6DD85">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+</MouseButtonRoot>

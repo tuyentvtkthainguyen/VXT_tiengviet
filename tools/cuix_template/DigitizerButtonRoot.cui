@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+Warning! Do not edit the contents of this file.
+If you attempt to edit this file using an XML editor, you could lose
+customization and migration functionality. If you need to change
+information in the customization file, use the Customize User Interface
+dialog in the product.
+To access the Customize User Interface dialog, click the Tools menu,
+Customization panel, User Interface button, or enter CUI on the command line.
+-->
+<DigitizerButtonRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ButtonGroup UID="BGU_241_F52CF">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE BUTTONS1</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_927B5">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_F650B">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE BUTTONS2</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_952F1">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_001FA">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE BUTTONS3</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_94578">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+  <ButtonGroup UID="BGU_241_A5673">
+    <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    <Alias>ALTERNATE BUTTONS4</Alias>
+    <ButtonItem BlankLine="true" UID="BIU_241_6D528">
+      <ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />
+    </ButtonItem>
+  </ButtonGroup>
+</DigitizerButtonRoot>

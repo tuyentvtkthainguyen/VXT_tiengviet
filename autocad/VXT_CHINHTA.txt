@@ -1,0 +1,39 @@
+﻿; Tu dien sua chinh ta cho VXT_TCVN2UNI - luu dang UTF-8
+; Moi dong:  chu sai|chu dung   (dong bat dau bang ; la ghi chu)
+; Chuong trinh tu sua ca dang viet hoa chu dau (Sử lý -> Xử lý)
+; Cac cap duoi day da co san trong chuong trinh, them cap moi o cuoi file.
+;sử lý|xử lý
+;xắp xếp|sắp xếp
+;sắp sếp|sắp xếp
+;xác xuất|xác suất
+;sát xuất|xác suất
+;xuất xắc|xuất sắc
+;suất sắc|xuất sắc
+;chuẩn đoán|chẩn đoán
+;bổ xung|bổ sung
+;chia sẽ|chia sẻ
+;dữ gìn|giữ gìn
+;xum họp|sum họp
+;kiễm tra|kiểm tra
+;kiễm soát|kiểm soát
+;sây dựng|xây dựng
+;tường sây|tường xây
+;gạch sây|gạch xây
+;cốt thếp|cốt thép
+;cao đọ|cao độ
+;bản vẻ|bản vẽ
+;chi tiếc|chi tiết
+;ghi trú|ghi chú
+;kích thướt|kích thước
+;tiêu chuẫn|tiêu chuẩn
+;xi-măng|xi măng
+;bê-tông|bê tông
+;thoát nướt|thoát nước
+;ống thoác|ống thoát
+;nghiệm thâu|nghiệm thu
+;trát vửa|trát vữa
+;vửa xi măng|vữa xi măng
+;dằm bo|dầm bo
+;giằn tường|giằng tường
+;móng bằng|móng băng
+trát vửa|trát vữa

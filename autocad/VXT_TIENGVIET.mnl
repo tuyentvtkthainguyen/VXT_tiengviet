@@ -1,0 +1,4 @@
+;;; Tu dong nap khi AutoCAD nap menu VXT_TIENGVIET.cuix
+(if (not c:TCVN2UNI)
+  (if (setq vxt:f (findfile "VXT_TCVN2UNI.lsp")) (load vxt:f)))
+(princ)
