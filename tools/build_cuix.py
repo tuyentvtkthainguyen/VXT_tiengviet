@@ -36,6 +36,10 @@ ICONS = [
     ("vxt_td",   "Aa", (106, 27, 154), None),
     ("vxt_hd",   "?",  (46, 125, 50), None),
     ("vxt_kt",   "✓",  (0, 121, 107), "ABC"),
+    ("vxt_hoa",  "ĐÂ", (21, 101, 192), "HOA"),
+    ("vxt_thg",  "đâ", (2, 119, 189), None),
+    ("vxt_cdau", "Đâ", (40, 53, 147), None),
+    ("vxt_dcau", "Đ.", (69, 90, 100), None),
 ]
 for n, t, c, s in ICONS:
     icon(n, t, c, s)
@@ -59,6 +63,14 @@ CMDS = [
      "Danh sách lệnh và hướng dẫn sử dụng"),
     ("MMU_VXT_A0008", "Kiểm tra chính tả", "^C^CTCVNKIEMTRA", "vxt_kt",
      "Kiểm tra chữ sai luật ghép vần tiếng Việt và chọn sẵn các đối tượng nghi sai (không sửa gì)"),
+    ("MMU_VXT_A0009", "CHỮ IN HOA", "^C^CVXTHOA", "vxt_hoa",
+     "Đổi chữ được chọn thành CHỮ IN HOA, đúng dấu tiếng Việt (đường → ĐƯỜNG)"),
+    ("MMU_VXT_A0010", "chữ thường", "^C^CVXTTHUONG", "vxt_thg",
+     "Đổi chữ được chọn thành chữ thường (giữ nguyên mã có số như C1, D10)"),
+    ("MMU_VXT_A0011", "Viết Hoa Chữ Đầu", "^C^CVXTCHUDAU", "vxt_cdau",
+     "Viết hoa chữ cái đầu mỗi từ"),
+    ("MMU_VXT_A0012", "Viết hoa đầu câu", "^C^CVXTDAUCAU", "vxt_dcau",
+     "Chữ thường, viết hoa chữ đầu mỗi câu"),
 ]
 REV = '<ModifiedRev MajorVersion="24" MinorVersion="1" UserVersion="1" />'
 HDR = open(os.path.join(T, "Header.cui"), encoding="utf-8").read().split("<CustSection")[0]
@@ -116,12 +128,27 @@ RIB = HDR + f'''<RibbonRoot>
         {btn("RBNU_VXT_B0007", 6, "LargeWithText")}
       </RibbonRow>
     </RibbonPanelSource>
+    <RibbonPanelSource UID="RBNU_VXT_P0003" Text="Đổi kiểu chữ" HiddenInEditor="false">
+      {REV}
+      <Name xlate="true" UID="XLS_VXT_P0003">Đổi kiểu chữ</Name>
+      <RibbonRow UID="RBNU_VXT_R0006">
+        {REV}
+        {btn("RBNU_VXT_B0009", 8, "LargeWithText")}
+        <RibbonRowPanel UID="RBNU_VXT_RP002" ResizeStyle="None" ResizePriority="100" TopJustify="True">
+          {REV}
+          <RibbonRow UID="RBNU_VXT_R0007">{REV}{btn("RBNU_VXT_B0010", 9, "SmallWithText")}</RibbonRow>
+          <RibbonRow UID="RBNU_VXT_R0008">{REV}{btn("RBNU_VXT_B0011", 10, "SmallWithText")}</RibbonRow>
+          <RibbonRow UID="RBNU_VXT_R0009">{REV}{btn("RBNU_VXT_B0012", 11, "SmallWithText")}</RibbonRow>
+        </RibbonRowPanel>
+      </RibbonRow>
+    </RibbonPanelSource>
   </RibbonPanelSourceCollection>
   <RibbonTabSourceCollection>
     <RibbonTabSource Text="VXT Tiếng Việt" UID="RBNU_VXT_TAB01">
       {REV}
       <Name xlate="true" UID="XLS_VXT_TAB01">VXT Tiếng Việt</Name>
       <RibbonPanelSourceReference UID="RBNU_VXT_PR001" PanelId="RBNU_VXT_P0001" ResizeStyle="Default">{REV}</RibbonPanelSourceReference>
+      <RibbonPanelSourceReference UID="RBNU_VXT_PR003" PanelId="RBNU_VXT_P0003" ResizeStyle="Default">{REV}</RibbonPanelSourceReference>
       <RibbonPanelSourceReference UID="RBNU_VXT_PR002" PanelId="RBNU_VXT_P0002" ResizeStyle="Default">{REV}</RibbonPanelSourceReference>
     </RibbonTabSource>
   </RibbonTabSourceCollection>

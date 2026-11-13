@@ -1314,6 +1314,7 @@
     "\n TCVNCAIDAT      : cai dat font dich, nhan dien, chinh ta, kieu dau"
     "\n TCVNTUDIEN      : mo tu dien chinh ta VXT_CHINHTA.txt"
     "\n TCVNKIEMTRA     : kiem tra chinh ta, chon san cac chu nghi sai (khong sua)"
+    "\n VXTHOA / VXTTHUONG / VXTCHUDAU / VXTDAUCAU : doi CHU HOA / chu thuong / Viet Hoa Chu Dau / Viet hoa dau cau"
     "\n Go U de hoan tac sau khi sua ban ve dang mo."))
   (vl-catch-all-apply 'command (list "_.BROWSER" "https://claude.ai/artifact/BtaeS2Gb5XSAsFUFLBPbce"))
   (princ))
@@ -1404,6 +1405,108 @@
                      "\nBan goc: " bak
                      "\nNhat ky: " dir "\\VXT_TCVN2UNI_log.txt"))))
   (princ))
+
+;;; ============================================================ DOI CHU HOA/THUONG
+;;; mode: "Hoa" CHU IN HOA | "Thuong" chu thuong | "Chudau" Viet Hoa Chu Dau | "Cau" Viet hoa dau cau
+;;; doi kieu chu theo tung tu; tu co chu so (C1, D10, M250) giu nguyen tru khi doi sang HOA
+(defun vn:caseword (w mode cap)
+  (cond
+    ((= mode "Hoa") (mapcar 'vn:upc w))
+    ((vl-some 'vn:digp w) w)
+    ((and cap (member mode '("Chudau" "Cau"))) (cons (vn:upc (car w)) (mapcar 'vn:lowc (cdr w))))
+    (T (mapcar 'vn:lowc w))))
+
+(defun vn:caserun (l mode / out w first)
+  (setq first T)
+  (foreach u (append l '(-1))
+    (if (and (/= u -1) (vn:wordp u))
+      (setq w (cons u w))
+      (progn
+        (if w
+          (setq out (append (reverse (vn:caseword (reverse w) mode (or (= mode "Chudau") first))) out)
+                w nil first nil))
+        (if (/= u -1)
+          (progn
+            (setq out (cons u out))
+            (if (member u '(46 33 63)) (setq first T)))))))
+  (reverse out))
+
+;;; doi kieu chu mot chuoi; tra ve chuoi moi hoac nil neu khong doi
+(defun vn:casestr (s mt mode / toks out chg r new)
+  (if (and s (= (type s) 'STR) (/= s ""))
+    (progn
+      (setq *vn:force* nil *vn:fchg* nil)
+      (setq toks (if mt (vn:mtok s nil) (list (list 1 nil (vn:s2cp s)))) out "")
+      (foreach x toks
+        (if (= (car x) 0)
+          (setq out (strcat out (vl-list->string (cadr x))))
+          (progn
+            (setq new (vn:caserun (vn:nfc (caddr x)) *vn:case*))
+            (if (not (equal new (caddr x))) (setq chg T))
+            (setq out (strcat out (vn:cp2s new))))))
+      (if (or chg *vn:fchg*) out))))
+
+(defun vn:casedo (o prop mt / old new)
+  (if (and (setq old (vn:get o prop)) (setq new (vn:casestr old mt *vn:case*)))
+    (vn:set o prop old new)))
+
+(defun vn:caseobj (o / on r c nr nc old new)
+  (setq on (vla-get-ObjectName o) *vn:mod* nil)
+  (cond
+    ((= on "AcDbText") (vn:casedo o 'TextString nil))
+    ((= on "AcDbMText") (vn:casedo o 'TextString T))
+    ((member on '("AcDbAttributeDefinition" "AcDbAttribute"))
+     (vn:casedo o 'TextString (vn:ismt o)))
+    ((= on "AcDbBlockReference")
+     (if (= (vla-get-HasAttributes o) :vlax-true)
+       (foreach a (vlax-invoke o 'GetAttributes) (vn:caseobj a))))
+    ((and (wcmatch on "AcDb*Dimension") (vlax-property-available-p o 'TextOverride))
+     (vn:casedo o 'TextOverride T)
+     (foreach pr '(TextPrefix TextSuffix)
+       (if (vlax-property-available-p o pr) (vn:casedo o pr nil))))
+    ((= on "AcDbMLeader")
+     (if (= (vla-get-ContentType o) 2) (vn:casedo o 'TextString T)))
+    ((= on "AcDbTable")
+     (setq nr (vla-get-Rows o) nc (vla-get-Columns o) r 0)
+     (vl-catch-all-apply 'vla-put-RegenerateTableSuppressed (list o :vlax-true))
+     (while (< r nr)
+       (setq c 0)
+       (while (< c nc)
+         (setq old (vl-catch-all-apply 'vla-GetText (list o r c)))
+         (if (and (= (type old) 'STR) (setq new (vn:casestr old T *vn:case*)))
+           (if (not (vl-catch-all-error-p (vl-catch-all-apply 'vla-SetText (list o r c new))))
+             (setq *vn:mod* T)))
+         (setq c (1+ c)))
+       (setq r (1+ r)))
+     (vl-catch-all-apply 'vla-put-RegenerateTableSuppressed (list o :vlax-false))))
+  (if (and *vn:mod* (/= on "AcDbBlockReference")) (setq *vn:nobj* (1+ *vn:nobj*))))
+
+(defun vn:caserun-cmd (mode / ss i)
+  (princ (strcat "\nDoi chu "
+                 (cond ((= mode "Hoa") "IN HOA") ((= mode "Thuong") "thuong")
+                       ((= mode "Chudau") "Viet Hoa Chu Dau") (T "Viet hoa dau cau"))
+                 ". Chon chu can doi: "))
+  (if (setq ss (vn:ssget))
+    (progn
+      (vn:init (vla-get-ActiveDocument (vlax-get-acad-object)))
+      (setq *vn:case* mode *vn:scope* "Chon")
+      (vn:begin)
+      (setq i 0)
+      (repeat (sslength ss)
+        (vn:caseobj (vlax-ename->vla-object (ssname ss i)))
+        (setq i (1+ i)))
+      (vn:end)
+      (princ (strcat "\nDa doi " (itoa *vn:nobj*) " doi tuong. Go U de hoan tac."))))
+  (princ))
+
+(defun c:VXTHOA () (vn:caserun-cmd "Hoa"))
+(defun c:VXTTHUONG () (vn:caserun-cmd "Thuong"))
+(defun c:VXTCHUDAU () (vn:caserun-cmd "Chudau"))
+(defun c:VXTDAUCAU () (vn:caserun-cmd "Cau"))
+(defun c:VXTCASE (/ k)
+  (initget "Hoa Thuong Chudau Daucau")
+  (setq k (getkword "\nDoi thanh [Hoa/Thuong/Chudau (Viet Hoa Chu Dau)/Daucau (Viet hoa dau cau)] <Hoa>: "))
+  (vn:caserun-cmd (cond ((= k "Thuong") "Thuong") ((= k "Chudau") "Chudau") ((= k "Daucau") "Cau") (T "Hoa"))))
 
 ;;; tu nap tab Ribbon VXT Tieng Viet neu chua co (sau khi cai bang file Setup)
 (defun vn:loadmenu (/ mg f)

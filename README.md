@@ -25,6 +25,10 @@ Windows có thể cảnh báo SmartScreen vì file chưa ký số: bấm *More i
 | Chọn đối tượng | `TCVN2UNI_CHON` | Chỉ chuyển các đối tượng chọn |
 | Cả thư mục | `TCVN2UNI_THUMUC` | Chuyển mọi file DWG trong một thư mục, sao lưu bản gốc vào `_BanGoc_VXT`, ghi nhật ký |
 | Kiểm tra chính tả | `TCVNKIEMTRA` | Rà soát, chọn sẵn chữ nghi sai (không sửa) |
+| CHỮ IN HOA | `VXTHOA` | Đổi chữ chọn thành IN HOA, đúng dấu tiếng Việt (đường → ĐƯỜNG) |
+| chữ thường | `VXTTHUONG` | Đổi thành chữ thường (giữ nguyên mã có số: C1, D10, M250) |
+| Viết Hoa Chữ Đầu | `VXTCHUDAU` | Viết hoa chữ cái đầu mỗi từ |
+| Viết hoa đầu câu | `VXTDAUCAU` | Chữ thường, viết hoa đầu mỗi câu |
 | Ép chuyển | `TCVNEP` | Ép theo bảng mã TCVN3 / TCVN3 hoa / VNI |
 | Cài đặt | `TCVNCAIDAT` | Font đích, nhận diện lỗi font, chính tả, kiểu đặt dấu |
 | Từ điển chính tả | `TCVNTUDIEN` | Mở `VXT_CHINHTA.txt` để thêm cặp `chữ sai|chữ đúng` |
