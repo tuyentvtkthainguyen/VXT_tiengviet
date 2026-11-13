@@ -601,7 +601,7 @@
     (setq bf (vl-catch-all-apply 'vla-get-BigFontFile (list st)))
     (if (or (vl-catch-all-error-p bf) (/= (type bf) 'STR)) (setq bf ""))
     (if (/= (type tf) 'STR) (setq tf ""))
-    (setq kind (or (vn:fontkind tf) (vn:fontkind ff))
+    (setq kind (cond ((vn:fontkind tf)) ((vn:fontkind ff)))
           shx  (and (= tf "") (/= ff "")
                     (not (wcmatch (strcase ff) "*`.TTF,*`.TTC,*`.OTF")))
           miss (and (null kind)
